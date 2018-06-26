@@ -1,4 +1,4 @@
-<h2 class="card-header">Registration Form</h2>
+<h2 class="card-header bg-primary text-light">Registration Form</h2>
 
 <form class="card-body" [formGroup]="regForm" (ngSubmit)="submit()">
   <div class="form-group">
@@ -23,6 +23,19 @@
     <div class="alert alert-danger" *ngIf="regForm.controls['gender'].invalid && regForm.controls['gender'].touched">Please choose your gender</div>
   </div>
 
+  <div formArrayName="phones">
+    <div class="form-group" *ngFor="let phone of regForm.controls['phones'].controls; let i = index">
+      <label for="phone-{{i}}">Phone:</label>
+      <input type="tel" id="phone-{{i}}" class="form-control" formControlName="{{i}}">
+      <div class="alert alert-danger" *ngIf="regForm.controls['phones'].controls[i].invalid && regForm.controls['phones'].controls[i].touched">Please enter phone number</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <button type="button" class="btn btn-outline-success btn-sm mr-2" (click)="addPhone()">Add phone</button>
+    <button type="button" class="btn btn-outline-danger btn-sm" (click)="removePhone()">Remove phone</button>
+  </div>
+
   <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="subscribe" id="subscribe-on" value="true" formControlName="subscribe">
     <label for="subscribe-on">Subscribe</label>
@@ -39,13 +52,13 @@
   </div>
 
   <div class="form-group form-check">
-    <input class="form-check-input" type="checkbox" id="confirm">
+    <input class="form-check-input" type="checkbox" id="confirm" formControlName="confirm">
     <label class="form-check-label" for="confirm">All data is correct</label>
   </div>
 
   <div class="row justify-content-center">
     <div class="col-6">
-      <button type="submit" class="btn btn-primary btn-block">Register</button>
+      <button type="submit" class="btn btn-primary btn-block" [disabled]="regForm.invalid">Register</button>
     </div>
   </div>
 </form>
