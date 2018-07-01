@@ -1,0 +1,14 @@
+<h2 class="card-header bg-secondary text-light">Separate components</h2>
+
+<form class="card-body" [formGroup]="separateForm" (ngSubmit)="submit()">
+  <div *ngFor="let item of formFields; let i = index">
+    <app-input-text *ngIf="item.type === 'text'" [group]="separateForm" [item]="item"></app-input-text>
+    <app-input-radio *ngIf="item.type === 'radio'" [group]="separateForm" [item]="item"></app-input-radio>
+    <app-input-select *ngIf="item.type === 'select'" [group]="separateForm" [item]="item"></app-input-select>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <button type="submit" class="btn btn-secondary btn-block" [disabled]="separateForm.invalid">Send</button>
+    </div>
+  </div>
+</form>
