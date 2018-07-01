@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 
 @Component({
@@ -8,7 +8,7 @@ import { FormControl, Validators, FormGroup } from '@angular/forms';
 })
 
 export class InputSelectComponent implements OnInit {
-  @Input() item: <any>{};
+  @Input() item;
   @Input('group') selectInput: FormGroup;
 
   constructor() { }

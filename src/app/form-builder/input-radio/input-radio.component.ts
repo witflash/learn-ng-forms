@@ -8,7 +8,7 @@ import { FormControl, Validators, FormGroup } from '@angular/forms';
 })
 
 export class InputRadioComponent {
-  @Input() item: <any>{};
+  @Input() item;
   @Input('group') radioInput: FormGroup;
 
   constructor() {}

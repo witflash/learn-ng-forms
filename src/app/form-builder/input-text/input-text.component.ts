@@ -8,7 +8,7 @@ import { FormControl, Validators, FormGroup } from '@angular/forms';
   styleUrls: ['./input-text.component.scss']
 })
 export class InputTextComponent {
-  @Input() item: <any>{};
+  @Input() item;
   @Input('group') textInput: FormGroup;
 
   constructor(private formBuilder: FormBuilderComponent) {}

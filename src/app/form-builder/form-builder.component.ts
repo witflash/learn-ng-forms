@@ -48,15 +48,19 @@ export class FormBuilderComponent {
       name: 'gender',
       label: 'Your gender:',
       required: true,
-      option: [
-        { key: '', value: ''},
-        { key: 'Man', value: 'man'},
-        { key: 'Woman', value: 'woman'},
+      options: [
+        { name: '', value: ''},
+        { name: 'Man', value: 'man'},
+        { name: 'Woman', value: 'woman'},
       ]
     }
   ];
 
   ngOnInit() {
+  }
+
+  submit() {
+    console.table(this.separateForm.controls);
   }
 
 }
