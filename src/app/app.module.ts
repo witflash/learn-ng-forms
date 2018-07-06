@@ -9,6 +9,8 @@ import { FormBuilderComponent } from './form-builder/form-builder.component';
 import { InputTextComponent } from './form-builder/input-text/input-text.component';
 import { InputRadioComponent } from './form-builder/input-radio/input-radio.component';
 import { InputSelectComponent } from './form-builder/input-select/input-select.component';
+import { InputArrayComponent } from './form-builder/input-array/input-array.component';
+import { InputsComponent } from './form-builder/inputs/inputs.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { InputSelectComponent } from './form-builder/input-select/input-select.c
     FormBuilderComponent,
     InputTextComponent,
     InputRadioComponent,
-    InputSelectComponent
+    InputSelectComponent,
+    InputArrayComponent,
+    InputsComponent
   ],
   imports: [
     BrowserModule,

@@ -9,14 +9,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class FormBuilderComponent {
   separateForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
-    const formControls = {};
-    for (let i = 0; i < this.formFields.length; i += 1) {
-      const control = this.formFields[i];
-      formControls[control.name] = ['', [Validators.required]];
-    }
-    this.separateForm = this.formBuilder.group(formControls);
-  }
+  constructor(private formBuilder: FormBuilder) {}
 
   public formFields: any[] = [
     {
@@ -43,6 +36,15 @@ export class FormBuilderComponent {
       value: '',
       required: false,
     },
+    [
+      {
+        type: 'text',
+        name: 'userPhone',
+        label: 'Phone',
+        value: '',
+        required: true
+      }
+    ],
     {
       type: 'select',
       name: 'gender',
@@ -57,10 +59,29 @@ export class FormBuilderComponent {
   ];
 
   ngOnInit() {
+    const formControls = {};
+    for (let i = 0; i < this.formFields.length; i += 1) {
+      const control = this.formFields[i];
+      if (Array.isArray(control)) {
+        formControls[control[0].name] = this.formBuilder.array([this.formBuilder.control('+38')]);
+      } else {
+        formControls[control.name] = ['', [Validators.required]];
+      }
+    }
+    this.separateForm = this.formBuilder.group(formControls);
+    console.log('this.separateForm: ', this.separateForm);
   }
 
   submit() {
     console.table(this.separateForm.controls);
+  }
+
+  isArray(item) {
+    return Array.isArray(item);
+  }
+
+  notArray(item) {
+    return !Array.isArray(item);
   }
 
 }
