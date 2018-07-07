@@ -3,12 +3,12 @@
 <form class="card-body" [formGroup]="separateForm" (ngSubmit)="submit()">
   <div *ngFor="let item of formFields">
     <div *ngIf="isArray(item)">
-        <div formArrayName="{{ item[0].name }}">
-          <div class="form-group" *ngFor="let phone of item">
-            <app-inputs [item]="phone" [group]="separateForm"></app-inputs>
-            <app-input-array [item]="phone" [group]="separateForm"></app-input-array>
+        <div [formArrayName]="item[0].name">
+          <div class="form-group" *ngFor="let phone of separateForm.controls[item[0].name].controls; let i = index">
+            <app-inputs [item]="item[0]" [index]="i" [group]="separateForm"></app-inputs>
           </div>
         </div>
+        <app-input-array [item]="item[0]" [group]="separateForm"></app-input-array>
     </div>
 
     <app-inputs *ngIf="notArray(item)" [item]="item" [group]="separateForm"></app-inputs>

@@ -22,10 +22,11 @@ export class InputArrayComponent implements OnInit {
 
   addPhone() {
     let control = this.fb.control('');
+    console.log(this.formArray);
     this.formArray.push(control);
   }
 
   removePhone() {
-    // (<FormArray>this.regForm.controls['phones']).removeAt(-1);
+    this.formArray.removeAt(-1);
   }
 }

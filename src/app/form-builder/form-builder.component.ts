@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -7,6 +7,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./form-builder.component.scss']
 })
 export class FormBuilderComponent {
+  @Output() i;
+
   separateForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {}
@@ -27,13 +29,15 @@ export class FormBuilderComponent {
       options: [
         { key: '', label: "Don't subscribe" },
         { key: 'true', label: 'Subscribe' }
-      ]
+      ],
+      linked: 'userEmail'
     },
     {
       type: 'text',
       name: 'userEmail',
       label: 'Email',
       value: '',
+      disabled: true,
       required: false,
     },
     [
@@ -63,13 +67,12 @@ export class FormBuilderComponent {
     for (let i = 0; i < this.formFields.length; i += 1) {
       const control = this.formFields[i];
       if (Array.isArray(control)) {
-        formControls[control[0].name] = this.formBuilder.array([this.formBuilder.control('+38')]);
+        formControls[control[0].name] = this.formBuilder.array([this.formBuilder.control('')]);
       } else {
-        formControls[control.name] = ['', [Validators.required]];
+        formControls[control.name] = [{ value: '', disabled: control.disabled || false }];
       }
     }
     this.separateForm = this.formBuilder.group(formControls);
-    console.log('this.separateForm: ', this.separateForm);
   }
 
   submit() {

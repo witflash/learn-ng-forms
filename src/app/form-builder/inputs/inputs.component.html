@@ -1,3 +1,3 @@
-<app-input-text *ngIf="item.type === 'text'" [group]="separateForm" [item]="item"></app-input-text>
+<app-input-text *ngIf="item.type === 'text'" [group]="separateForm" [item]="item" [index]="index"></app-input-text>
 <app-input-radio *ngIf="item.type === 'radio'" [group]="separateForm" [item]="item"></app-input-radio>
 <app-input-select *ngIf="item.type === 'select'" [group]="separateForm" [item]="item"></app-input-select>

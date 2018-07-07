@@ -9,15 +9,21 @@ import { FormControl, Validators, FormGroup } from '@angular/forms';
 })
 export class InputTextComponent {
   @Input() item;
+  @Input() index;
   @Input('group') textInput: FormGroup;
 
   constructor(private formBuilder: FormBuilderComponent) {}
 
   ngOnInit() {
+    console.log('input-text > index: ', this.index);
   }
 
   getInput(input) {
     console.log(input)
+  }
+
+  checkLinked() {
+    console.log(this);
   }
 
 }

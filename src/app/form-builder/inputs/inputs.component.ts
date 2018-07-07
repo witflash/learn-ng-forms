@@ -8,13 +8,13 @@ import { FormGroup } from '@angular/forms';
 })
 export class InputsComponent implements OnInit {
   @Input() item;
+  @Input() index;
   @Input('group') separateForm: FormGroup;
 
   constructor() { }
 
   ngOnInit() {
-    const control = this.separateForm.controls;
-    console.log('control: ', control);
+    console.log('inputs > item: ', this.item);
+    console.log('inputs > index: ', this.index);
   }
-
 }

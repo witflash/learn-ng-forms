@@ -9,11 +9,24 @@ import { FormControl, Validators, FormGroup } from '@angular/forms';
 
 export class InputRadioComponent {
   @Input() item;
-  @Input('group') radioInput: FormGroup;
+  @Input('group') separateForm: FormGroup;
 
   constructor() {}
 
   ngOnInit() {
+  }
+
+  changeLinked() {
+    console.log(this);
+    const currentName = this.item.name;
+    const linkedName = this.item.linked;
+    const value = !!this.separateForm.controls[currentName].value;
+
+    if (value) {
+      this.separateForm.controls[linkedName].enable();
+    } else {
+      this.separateForm.controls[linkedName].disable();
+    }
   }
 
 }
