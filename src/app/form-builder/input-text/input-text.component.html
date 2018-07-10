@@ -1,5 +1,5 @@
 <div class="form-group" [formGroup]="textInput">
   <label [for]="item.name">{{ item.label }}:</label>
-  <input class="form-control" type="text" [name]="item.name" [id]="item.name" [value]="item.value" [formControlName]="index || item.name" (keyup)="getInput(textInput)">
+  <input class="form-control" [type]="item.type" [name]="item.name" [id]="item.name" [value]="item.value" [formControlName]="getControlName()" (keyup)="getInput(textInput)">
   <div class="alert alert-danger" *ngIf="textInput.controls[item.name].invalid && textInput.controls[item.name].touched">The field is necessary</div>
 </div>

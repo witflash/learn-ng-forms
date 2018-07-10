@@ -14,7 +14,13 @@ export class InputsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log('inputs > item: ', this.item);
-    console.log('inputs > index: ', this.index);
+    // console.log('inputs > item: ', this.item);
+    // console.log('inputs > index: ', this.index);
+  }
+
+  isText() {
+    const textInputs = ['text', 'email', 'date'];
+    const isText = textInputs.includes(this.item.type);
+    return isText;
   }
 }

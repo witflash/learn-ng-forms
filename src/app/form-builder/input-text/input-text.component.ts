@@ -15,15 +15,27 @@ export class InputTextComponent {
   constructor(private formBuilder: FormBuilderComponent) {}
 
   ngOnInit() {
-    console.log('input-text > index: ', this.index);
+    // console.log('input-text > index: ', this.index);
   }
 
   getInput(input) {
-    console.log(input)
+    // console.log(input)
   }
 
   checkLinked() {
-    console.log(this);
+    // console.log(this);
+  }
+
+  getControlName() {
+    // console.log('index: ', this.index);
+    // console.log('item: ', this.item);
+    if (this.index !== undefined) {
+      // console.log('this.index: ', this.index);
+      // console.log('textInput: ', this.textInput)
+      return this.index;
+    } else {
+      return this.item.name;
+    }
   }
 
 }

@@ -1,5 +1,6 @@
 <div class="form-group" [formGroup]="selectInput">
-  <select class="form-control" [name]="item.name" [formControlName]="item.name">
+  <label [for]="item.name">{{ item.label }}:</label>
+  <select class="form-control" [name]="item.name" [formControlName]="item.name" [id]="item.name">
     <option *ngFor="let option of item.options" [value]="option.value">{{ option.name }}</option>
   </select>
   <div class="alert alert-danger" *ngIf="selectInput.controls[item.name].invalid && selectInput.controls[item.name].touched">The field is necessary</div>
