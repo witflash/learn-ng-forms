@@ -6,7 +6,7 @@ import { FormGroup } from '@angular/forms';
   templateUrl: './inputs.component.html',
   styleUrls: ['./inputs.component.scss']
 })
-export class InputsComponent implements OnInit {
+export class InputsComponent {
   @Input() item;
   @Input() index;
   @Input('group') parentFormGroup: FormGroup;
@@ -14,8 +14,7 @@ export class InputsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    // console.log('inputs > item: ', this.item);
-    // console.log('inputs > index: ', this.index);
+    // console.log(this.item);
   }
 
   isText() {

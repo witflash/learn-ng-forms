@@ -28,5 +28,4 @@ export class InputRadioComponent {
       this.separateForm.controls[linkedName].disable();
     }
   }
-
 }

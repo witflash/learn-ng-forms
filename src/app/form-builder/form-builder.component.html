@@ -1,23 +1,23 @@
 <h2 class="card-header bg-primary text-light">Country Select</h2>
 
-<form class="card-body" [formGroup]="separateForm" (ngSubmit)="submit()">
+<form class="card-body" [formGroup]="related.separateForm" (ngSubmit)="submit()">
   <div *ngFor="let item of related.currentData">
 
     <div *ngIf="isFormGroup(item)">
-      <div [formGroup]="separateForm.controls[item.groupName]">
+      <div [formGroup]="related.separateForm.controls[item.groupName]">
         <div *ngFor="let child of item.controls">
-          <app-inputs [item]="child" [group]="separateForm.controls[item.groupName]"></app-inputs>
+          <app-inputs [item]="child" [group]="related.separateForm.controls[item.groupName]"></app-inputs>
         </div>
       </div>
     </div>
 
-    <app-inputs *ngIf="!isFormGroup(item)" [item]="item" [group]="separateForm"></app-inputs>
+    <app-inputs *ngIf="!isFormGroup(item)" [item]="item" [group]="related.separateForm"></app-inputs>
 
   </div>
 
   <div class="row justify-content-center">
     <div class="col-6">
-      <button type="submit" class="btn btn-primary btn-block" [disabled]="separateForm.invalid">Send</button>
+      <button type="submit" class="btn btn-primary btn-block" [disabled]="related.separateForm.invalid">Send</button>
     </div>
   </div>
 </form>

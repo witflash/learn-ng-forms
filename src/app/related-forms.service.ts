@@ -12,6 +12,15 @@ export class RelatedFormsService {
 
   public formData: any[] = [
     {
+      type: 'select',
+      name: 'country',
+      label: 'Country',
+      options: [
+        {name: 'Ukraine', value: 'UA'},
+        {name: 'USA', value: 'US'}
+      ]
+    },
+    {
       type: 'text',
       name: 'userName',
       label: 'First Name',
@@ -37,15 +46,6 @@ export class RelatedFormsService {
       name: 'date',
       label: 'Birthday Date',
       value: '',
-    },
-    {
-      type: 'select',
-      name: 'country',
-      label: 'Country',
-      options: [
-        {name: 'Ukraine', value: 'UA'},
-        {name: 'USA', value: 'US'}
-      ]
     },
     {
       type: 'text',
@@ -113,7 +113,7 @@ export class RelatedFormsService {
 
   public currentData: any[] = [];
 
-  public relatedData = {};
+  public relatedData = {country: 'UA'};
 
   initForm() {
     this.buildCurrent(this.formData);

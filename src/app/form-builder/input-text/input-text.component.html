@@ -1,5 +1,5 @@
 <div class="form-group" [formGroup]="parentFormGroup">
   <label [for]="item.name">{{ item.label }}:</label>
-  <input class="form-control" [type]="item.type" [name]="item.name" [id]="item.name" [value]="item.value" [formControlName]="item.name" (keyup)="getInput(parentFormGroup)">
+  <input class="form-control" [type]="item.type" [name]="item.name" [id]="item.name" [value]="item.value" [formControlName]="item.name">
   <!-- <div class="alert alert-danger" *ngIf="parentFormGroup.controls[item.name].invalid && parentFormGroup.controls[item.name].touched">The field is necessary</div> -->
 </div>
