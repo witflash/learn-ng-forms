@@ -1,3 +1,3 @@
-<app-input-text *ngIf="isText()" [group]="separateForm" [item]="item" [index]="index"></app-input-text>
-<app-input-radio *ngIf="item.type === 'radio'" [group]="separateForm" [item]="item"></app-input-radio>
-<app-input-select *ngIf="item.type === 'select'" [group]="separateForm" [item]="item"></app-input-select>
+<app-input-text *ngIf="isText()" [group]="parentFormGroup" [item]="item" [index]="index"></app-input-text>
+<app-input-radio *ngIf="item.type === 'radio'" [group]="parentFormGroup" [item]="item"></app-input-radio>
+<app-input-select *ngIf="item.type === 'select'" [group]="parentFormGroup" [item]="item"></app-input-select>

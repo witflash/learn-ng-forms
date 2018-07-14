@@ -1,18 +1,20 @@
 <h2 class="card-header bg-primary text-light">Country Select</h2>
 
 <form class="card-body" [formGroup]="separateForm" (ngSubmit)="submit()">
-  <div *ngFor="let item of formFields">
-    <div *ngIf="isArray(item)">
-        <div [formArrayName]="item[0].name">
-          <div class="form-group" *ngFor="let phone of separateForm.controls[item[0].name].controls; let i = index">
-            <app-inputs [item]="item[0]" [index]="i" [group]="separateForm"></app-inputs>
-          </div>
+  <div *ngFor="let item of related.currentData">
+
+    <div *ngIf="isFormGroup(item)">
+      <div [formGroup]="separateForm.controls[item.groupName]">
+        <div *ngFor="let child of item.controls">
+          <app-inputs [item]="child" [group]="separateForm.controls[item.groupName]"></app-inputs>
         </div>
-        <app-input-array [item]="item[0]" [group]="separateForm"></app-input-array>
+      </div>
     </div>
 
-    <app-inputs *ngIf="notArray(item)" [item]="item" [group]="separateForm"></app-inputs>
+    <app-inputs *ngIf="!isFormGroup(item)" [item]="item" [group]="separateForm"></app-inputs>
+
   </div>
+
   <div class="row justify-content-center">
     <div class="col-6">
       <button type="submit" class="btn btn-primary btn-block" [disabled]="separateForm.invalid">Send</button>

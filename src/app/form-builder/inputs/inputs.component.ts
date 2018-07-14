@@ -9,7 +9,7 @@ import { FormGroup } from '@angular/forms';
 export class InputsComponent implements OnInit {
   @Input() item;
   @Input() index;
-  @Input('group') separateForm: FormGroup;
+  @Input('group') parentFormGroup: FormGroup;
 
   constructor() { }
 

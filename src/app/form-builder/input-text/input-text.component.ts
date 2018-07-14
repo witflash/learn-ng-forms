@@ -10,7 +10,7 @@ import { FormControl, Validators, FormGroup } from '@angular/forms';
 export class InputTextComponent {
   @Input() item;
   @Input() index;
-  @Input('group') textInput: FormGroup;
+  @Input('group') parentFormGroup: FormGroup;
 
   constructor(private formBuilder: FormBuilderComponent) {}
 
@@ -19,7 +19,7 @@ export class InputTextComponent {
   }
 
   getInput(input) {
-    // console.log(input)
+    console.log(input)
   }
 
   checkLinked() {
